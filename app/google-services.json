@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "37703875277",
+    "project_id": "myapplication3-138d7",
+    "storage_bucket": "myapplication3-138d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37703875277:android:78b33ceafaa8dd08390784",
+        "android_client_info": {
+          "package_name": "com.dastrix.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37703875277-12crelm04c0oc36dg3cnmu4q0e9nepqt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dastrix.myapplication",
+            "certificate_hash": "a6641cade4b1900d5150aff4261c3e77a83f885e"
+          }
+        },
+        {
+          "client_id": "37703875277-k7fqcp5pgqee2amsvhvp7bhqpg3sh8dg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY-oH9xPoKtu3ZrciNPbJV0kVPiy0_yHY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "37703875277-k7fqcp5pgqee2amsvhvp7bhqpg3sh8dg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

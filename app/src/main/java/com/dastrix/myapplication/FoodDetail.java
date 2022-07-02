@@ -1,5 +1,6 @@
 package com.dastrix.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,13 +25,13 @@ import com.dastrix.myapplication.Models.Food;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class FoodDetail extends AppCompatActivity {
 
     public static int ID = 0;
     private ImageView mainPhoto;
     private TextView foodMainName, price, foodFullName;
-    private Button btnGoToCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,7 @@ public class FoodDetail extends AppCompatActivity {
         foodMainName = findViewById(R.id.foodMainName);
         price = findViewById(R.id.price);
         foodFullName = findViewById(R.id.foodFullName);
-        btnGoToCart = findViewById(R.id.btnGoToCart);
+        Button btnGoToCart = findViewById(R.id.btnGoToCart);
 
         btnGoToCart.setOnClickListener(view -> startActivity(new Intent(FoodDetail.this, CartActivity.class)));
 
@@ -54,7 +55,7 @@ public class FoodDetail extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Category category = snapshot.getValue(Category.class);
 
-                foodMainName.setText(category.getName());
+                foodMainName.setText(Objects.requireNonNull(category).getName());
 
                 int id = getApplicationContext().getResources().getIdentifier("drawable/" + category.getImage(), null, getApplicationContext().getPackageName());
                 mainPhoto.setImageResource(id);
@@ -68,11 +69,12 @@ public class FoodDetail extends AppCompatActivity {
 
         final DatabaseReference table_food = database.getReference("Food");
         table_food.child(String.valueOf(ID)).addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Food foodItem = snapshot.getValue(Food.class);
 
-                price.setText(foodItem.getPrice() + " гривен");
+                price.setText(Objects.requireNonNull(foodItem).getPrice() + " гривен");
                 foodFullName.setText(foodItem.getFull_text());
             }
 

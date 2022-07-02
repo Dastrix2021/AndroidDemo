@@ -6,10 +6,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,7 +25,6 @@ import java.util.List;
 public class CartActivity extends AppCompatActivity {
 
     private ListView listView;
-    private Button btnMakeOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +32,7 @@ public class CartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cart);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        btnMakeOrder = findViewById(R.id.btnMakeOrder);
+        Button btnMakeOrder = findViewById(R.id.btnMakeOrder);
         listView = findViewById(R.id.shopping_cart);
         List<Cart> cartList = JSONHelper.importFromJSON(this);
 
@@ -66,9 +63,9 @@ public class CartActivity extends AppCompatActivity {
                         String activeUser = com.dastrix.myapplication.SignIn.getDefaults("phone", CartActivity.this);
                         Order order = new Order(JSONHelper.createJSONString(cartList), activeUser);
 
-                        Long tsLong = System.currentTimeMillis() / 1000;
+                        long tsLong = System.currentTimeMillis() / 1000;
 
-                        table.child(tsLong.toString()).setValue(order).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        table.child(Long.toString(tsLong)).setValue(order).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
 

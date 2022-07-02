@@ -1,10 +1,7 @@
 package com.dastrix.myapplication.Helpers;
-
 import android.content.Context;
-
 import com.google.gson.Gson;
 import com.dastrix.myapplication.Models.Cart;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

@@ -21,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.dastrix.myapplication.Models.User;
 
+import java.util.Objects;
+
 public class SignIn extends AppCompatActivity {
 
     private Button btnSignIn;
@@ -45,7 +47,7 @@ public class SignIn extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.child(editPhone.getText().toString()).exists()) {
                     User user = snapshot.child(editPhone.getText().toString()).getValue(User.class);
-                    if(user.getPassword().equals(editPassword.getText().toString())) {
+                    if(Objects.requireNonNull(user).getPassword().equals(editPassword.getText().toString())) {
                         setDefaults("phone", editPhone.getText().toString(), SignIn.this);
                         setDefaults("name", user.getName(), SignIn.this);
 

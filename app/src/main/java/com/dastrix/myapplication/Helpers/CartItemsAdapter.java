@@ -7,10 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,12 +19,13 @@ import com.dastrix.myapplication.Models.Category;
 import com.dastrix.myapplication.R;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CartItemsAdapter extends ArrayAdapter<Cart> {
 
-    private LayoutInflater layoutInflater;
-    private List<Cart> cartList;
-    private int layoutListRow;
+    private final LayoutInflater layoutInflater;
+    private final List<Cart> cartList;
+    private final int layoutListRow;
 
     public CartItemsAdapter(@NonNull Context context, int resource, @NonNull List<Cart> objects) {
         super(context, resource, objects);
@@ -60,7 +59,7 @@ public class CartItemsAdapter extends ArrayAdapter<Cart> {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         Category category = snapshot.getValue(Category.class);
-                        productName.setText(category.getName());
+                        productName.setText(Objects.requireNonNull(category).getName());
                     }
 
                     @Override

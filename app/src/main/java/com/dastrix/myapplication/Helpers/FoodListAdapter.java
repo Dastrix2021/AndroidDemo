@@ -21,10 +21,10 @@ import java.util.List;
 
 public class FoodListAdapter extends ArrayAdapter<Category> {
 
-    private LayoutInflater layoutInflater;
-    private List<Category> categories;
-    private int layoutListRow;
-    private Context context;
+    private final LayoutInflater layoutInflater;
+    private final List<Category> categories;
+    private final int layoutListRow;
+    private final Context context;
 
     public FoodListAdapter(@NonNull Context context, int resource, @NonNull List<Category> objects) {
         super(context, resource, objects);
@@ -58,7 +58,6 @@ public class FoodListAdapter extends ArrayAdapter<Category> {
                 photo.setOnClickListener(view -> {
                     FoodDetail.ID = position + 1;
                     context.startActivity(new Intent(context, FoodDetail.class));
-                    // Toast.makeText(getContext(), foodName.getText().toString(), Toast.LENGTH_LONG).show();
                 });
             }
 

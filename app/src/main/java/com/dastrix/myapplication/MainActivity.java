@@ -2,15 +2,12 @@ package com.dastrix.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
-    private Button btnSignIn, btnSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +17,13 @@ public class MainActivity extends AppCompatActivity {
 
         String activeUser = com.dastrix.myapplication.SignIn.getDefaults("phone", MainActivity.this);
 
-//        if(!activeUser.equals("")) {
-//            Intent intent = new Intent(MainActivity.this, com.dastrix.myapplication.FoodPage.class);
-//            startActivity(intent);
-//        }
+        if(!activeUser.isEmpty()) {
+            Intent intent = new Intent(MainActivity.this, com.dastrix.myapplication.FoodPage.class);
+            startActivity(intent);
+        }
 
-        btnSignIn = findViewById(R.id.btnSignIn);
-        btnSignUp = findViewById(R.id.btnSignUp);
+        Button btnSignIn = findViewById(R.id.btnSignIn);
+        Button btnSignUp = findViewById(R.id.btnSignUp);
 
         btnSignIn.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, SignIn.class);

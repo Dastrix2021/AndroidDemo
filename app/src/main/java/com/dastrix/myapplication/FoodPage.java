@@ -1,15 +1,11 @@
 package com.dastrix.myapplication;
 
 import android.os.Bundle;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -54,12 +50,5 @@ public class FoodPage extends AppCompatActivity {
                 Toast.makeText(FoodPage.this, "Нет интернет соединения", Toast.LENGTH_SHORT).show();
             }
         });
-
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-//                Toast.makeText(FoodPage.this, adapterView.getAdapter().getItem(position).toString(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
     }
 }
